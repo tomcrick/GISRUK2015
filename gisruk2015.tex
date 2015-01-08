@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage[left=25mm, right=25mm, top=25mm, bottom=25mm, includehead=true, includefoot=true]{geometry}
+
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{natbib} % For referencing
+\usepackage{authblk} % For author lists
+\usepackage[parfill]{parskip} % Line between paragraphs
+
+\pagenumbering{gobble} % Turn off page numbers
+
+% Make all headings the same size (11pt):
+\usepackage{sectsty}
+\sectionfont{\normalsize}
+\subsectionfont{\normalsize}
+\subsubsectionfont{\normalsize}
+\paragraphfont{\normalsize}
+
+\renewcommand{\abstractname}{Summary} % Make 'abstract' be called 'Summary'
+
+% This makes links and bookmarks in the pdf output (should be last usepackage command because it overrides lots of other commands)
+\usepackage[pdftex]{hyperref} 
+\hypersetup{pdfborder={0 0 0} } % This turns off the stupid colourful border around links
+
+
+\title{Data Exploration with GIS Viewsheds and Social Network Analysis}
+
+\author{Giles Oatley}
+\author{Tom Crick\thanks{\{goatley,tcrick\}@cardiffmet.ac.uk}}
+\affil{Department of Computing, Cardiff Metropolitan University}
+
+\date{ }
+
+\renewcommand\Authands{ and } % correct last comma in author list
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\centering
+
+(summary of no more than 100 words)
+
+$ $ \\ {\bf KEYWORDS:} (5 keywords or short phrases relevant to the work)
+
+\end{abstract}
+
+
+\section{Introduction}
+
+\section*{Biography}
+(ll contributing authors should include a biography of no more than 50 words each outlining their career stage and research interests)
+
+
+\bibliographystyle{apa}
+\bibliography{references.bib}
+
+\end{document}
