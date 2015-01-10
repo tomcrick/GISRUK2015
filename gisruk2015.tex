@@ -25,9 +25,11 @@
 
 \title{Data Exploration with GIS Viewsheds and Social Network Analysis}
 
-\author{Giles Oatley}
-\author{Tom Crick\thanks{\{goatley,tcrick\}@cardiffmet.ac.uk}}
-\affil{Department of Computing, Cardiff Metropolitan University}
+\author[1]{Giles Oatley\thanks{goatley@cardiffmet.ac.uk}}
+\author[1]{Tom Crick\thanks{tcrick@cardiffmet.ac.uk}}
+\author[2]{Ray Howell\thanks{ray.howell@southwales.ac.uk}}
+\affil[1]{Department of Computing, Cardiff Metropolitan University, UK}
+\affil[2]{Faculty of Business and Society, University of South Wales, UK}
 
 \date{ }
 
@@ -40,20 +42,175 @@
 \begin{abstract}
 \centering
 
-(summary of no more than 100 words)
+We present a novel exploratory method combining line of sight
+visibility (viewshed analysis) and techniques from social network
+analysis to investigate archaeological data. At increasing distances
+different nodes are connected creating a set of networks, which are
+subsequently described using centrality measures and clustering
+coefficients. Networks with significant properties are examined in
+more detail. We use this method to investigate the placement of
+hillforts (nodes) in the Gwent region of south-east Wales, UK. We are
+able to determine distances that support significant transitions in
+network structure that could have significant archaeological validity.
 
-$ $ \\ {\bf KEYWORDS:} (5 keywords or short phrases relevant to the work)
+$ $ \\ {\bf KEYWORDS:} Geographic networks, archaeological nodes,
+viewshed analysis, data mining, social network analysis
 
 \end{abstract}
 
 
-\section{Introduction}
+\section*{Extended Abstract}
+
+We present a novel exploratory method that combines line of sight
+visibility (viewshed analysis) with techniques from social network
+analysis to investigate archaeological data. Within data mining exist
+the fields of graph-based and spatial-based data mining. Graph-based
+data mining~\citep{cook+holder:2006} has a close cousin in the long
+established field of social network analysis, a set of metrics that
+operates over graphs (networks) created from
+links~\citep{wasserman+faust:1995}. Metrics include those to find
+clusters within networks, to find points that have significant
+properties, for instance how central a point is. Spatial data mining
+likewise has an extensive history~\citep{lu-et-al:1993}, and is the
+discovery of interesting patterns from spatial datasets.
+
+At increasing distances different nodes are connected creating a set
+of networks, which are subsequently described using centrality
+measures and clustering coefficients. Networks with significant
+properties are examined in more detail. We use this method to
+investigate the placement of hillforts (nodes) in the Gwent region of
+south-east Wales, UK. Our methodology is applied to the area of the
+Iron Age tribe known as the Silures, described as a `resilient and
+sophisticated clan based tribal
+confederation'~\citep{howell:2009}. Our preliminary investigation
+focuses on the Gwent region with a study area which roughly
+approximates the county as constituted between 1974 and 1996.
+Figure~\ref{fig:hillforts} shows the placement of 30 hillforts in this
+region. We are able to determine distances that support significant
+transitions in net-work structure that could have archaeological
+validity.  Our study uses both geographical and graph/network
+structures, and presents an exploratory methodology within which to
+discover significant distances underlying network creation. While
+based on archaeological informatics, the approach has a more general
+use, for instance neural architectures, transportation networks, and
+other forms of geographical networks.
+
+This research lies in the intersection of spatial and graph-based
+data. Related work includes that of the physics literature on
+geographical networks~\citep{ben-avraham-et-al:2003}, architectural
+analysis and the isovist literature including visibility
+graphs~\citep{steadman:1973,llobera:1996,turner-et-al:2001}, and the
+authors' recent work incorporating kernel density estimation into the
+betweenness social network
+metric~\citep{oatley+crick_asonam2014,oatley+crick_fosintsi2014}. The
+data used includes the Iron Age hillfort data, provided from the
+Historic Environment Records\footnote{Archwilio, the Historical
+Environment Records of the Welsh Archaeological Trusts:
+\url{http://www.archwilio.org.uk/}}, and a Digital Elevation Model
+based on the Shuttle Radar Topography Mission data (UK SRTM
+DEM)\footnote{UK SRTM DEM created by Addy Pope. Spatial Reference
+System--Great Britain National Grid:
+\url{http://edina.ac.uk/projects/sharegeo/}} with 90m horizontal
+resolution.
+
+We develop connectivity between Iron Age hillforts based on viewsheds
+and an increasing distance threshold. A viewshed is the area of land
+that is within line of sight from a fixed viewing position. We analyse
+the generated set of networks of connected hillforts using social
+network analysis, and use the metrics to inform theories of possible
+use and communication between hillforts.  Degree centrality is
+simplest and is a count of the number of links to other nodes in the
+network. Closeness however is a measure of how close a node is to all
+other nodes in a network~\citep{sabidussi:1966}. It is the mean of the
+shortest paths between a node and all other nodes reachable from
+it. Betweenness is the extent to which a node lies between other nodes
+in the network and is equal to the number of shortest paths from all
+nodes to all others that pass through that
+node~\citep{freeman:1977}. This measure takes into account the
+connectivity of the node's neighbours, giving a higher value for nodes
+which bridge clusters.
+
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=0.8\textwidth]{images/hillforts.png}
+\caption{Hillforts in south-east Wales. Hillforts are displayed as
+  white crosses on the front contour display. The same terrain and
+  hillforts (white circles) are displayed behind on a Digital
+  Elevation Model (DEM). The DEM display shows that there are many
+  other sites that could have been used for placement of hillforts.}
+\label{fig:hillforts}
+\end{figure}
+
+We explore using a local clustering
+coefficient~\citep{watts+strogatz:1998} quantifying how close a
+networks nodes’ neighbours are to being a clique (fully connected).
+Viewsheds are generated for each hillfort, in order to determine
+intervisibility between every hillfort. We are then able to determine
+which hillforts are intervisible at any given distance threshold.  In
+this way we investigate networks of hillforts at different distance
+values examining the clustering coefficient and betweenness measures.
+
+\begin{figure}[!hp]
+\centering
+\includegraphics[width=0.7\textwidth]{images/interestingnetworks.png}
+\caption{Interesting networks. 1: 5km. 2: 10km. 3: 15km. 4: 20km.}
+\label{fig:intnetworks}
+\end{figure}
+
+This reveals several interesting transition points (see
+Figure~\ref{fig:intnetworks}) in connectivity, including localised
+clusters being evident, connectivity between larger regions, and
+connectivity along key geographic features such as along a shoreline
+and up waterways.  In previous studies `significant' distances and
+decay values have been determined a priori. We, however, examine the
+centrality of individual nodes (hillforts) in these networks with the
+most significant values. We are interested in discovering interesting
+patterns and clusters and then investigating them {\emph{a
+posteriori}} for (archaeological) validity.  Among preliminary
+conclusions arising from this first phase of investigation is that the
+methodology employed can effectively inform our understanding of Iron
+Age social structures. For example, viewshed analysis confirms
+hypothesised clan-based clustering of hillforts in the region with
+extensive line of sight communication, not only within clusters, but
+also with other hillfort groupings.  The model of a clan-based
+confederation with regional emphasis, and possibly variation, but with
+wider connectivity sufficient to allow the cohesion necessary to have
+resisted the Roman advance so effectively seems wholly appropriate.
+Future work will utilise fuzzy viewsheds instead of the standard
+binary viewshed, with distance decay functions based on the limits of
+normal human vision and such features as the size of people,
+livestock, distances that smoke plumes can be seen and so on. We will
+also consider the integration of least-cost paths in landscapes.
+
 
 \section*{Biography}
-(ll contributing authors should include a biography of no more than 50 words each outlining their career stage and research interests)
+
+{\textbf{Dr Giles Oatley}} is a Reader in Intelligent Systems at
+Cardiff Metropolitan University. He has developed decision support
+systems based on behavioural models from data mining, primarily for UK
+police forces, supported by the EPSRC, Home Office, HEFCE, Nuffield
+Foundation, and DTI. He has a broad interest in anthropology and
+psychology, especially mindfulness and psychoanalysis.
+
+{\textbf{Dr Tom Crick}} is a Senior Lecturer in Computing Science at
+Cardiff Metropolitan University. His research is naturally
+interdisciplinary: optimisation, intelligent systems, data science and
+analytics, high performance computing and reproducibility. He is the
+Nesta Data Science Fellow, a 2014 Fellow of the Software
+Sustainability Institute and a member of {\emph{HiPEAC}}, the European
+FP7 Network of Excellence on High Performance and Embedded
+Architecture and Compilation.
+
+{\textbf{Professor Ray Howell}} is Professor of Welsh Antiquity and
+Director of the South Wales Centre for Historical and
+Interdisciplinary Research at the University of South Wales. He is a
+Fellow of the Society of Antiquaries of London. He is also Chairman of
+the Glamorgan Gwent Archaeological Trust and the Glamorgan Gwent
+Historic Environment Record Charitable Trust.
+
 
 
 \bibliographystyle{apa}
-\bibliography{references.bib}
+\bibliography{gisruk2015}
 
 \end{document}
